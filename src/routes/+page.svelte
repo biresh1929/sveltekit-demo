@@ -1,2 +1,5 @@
-<h1>Welcome from Team CYPERPHUNK</h1>
-<p class="ml-20 pt-20 pl-20 hover:underline font-bold hover:text-red-500 ">Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<section class="bg-white">
+    <div class="py-8 px-4 mx-auto text-center">
+        <h1 class=" text-gray-900 ">Team CYPHERPUNK</h1>
+    </div>
+</section>
