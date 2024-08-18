@@ -3,4 +3,3 @@
 </script>
 <h3>list of blogs</h3>
 
-<Table />
