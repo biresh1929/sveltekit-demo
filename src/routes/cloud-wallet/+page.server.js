@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import NeucronSDK from "neucron-sdk";
 
 /** @type {import('./$types').Actions} */
