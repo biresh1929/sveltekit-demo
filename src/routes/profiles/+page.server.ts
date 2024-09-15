@@ -63,29 +63,13 @@ async function seed() {
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	
-  // update: async ({ request }) => {
-  //   const data = await request.formData();
-  //   const db = createPool({ connectionString: POSTGRES_URL })
-  //   const client = await db.connect();
-
-  //   const email = data.get('email');
-	// 	const name = data.get('name');
-
-  //   const updateUser = await client.sql`
-  //   UPDATE names
-  //   SET email = ${email}, name = ${name}
-  //   WHERE     ;`
-	
-	// 	return { success: true };
-	// },
 
   delete: async ({ request }) => {
     const data = await request.formData();
     const db = createPool({ connectionString: POSTGRES_URL })
     const client = await db.connect();
 
-    const id = data.get('id');
+    const id = data.get('id') as null;
 
     const deleteUser = await client.sql`
     DELETE FROM names
@@ -99,8 +83,8 @@ export const actions = {
     const db = createPool({ connectionString: POSTGRES_URL })
     const client = await db.connect();
 
-    const email = data.get('email');
-		const name = data.get('name');
+    const email = data.get('email') as null;
+		const name = data.get('name') as null;
 
     const createUser = await client.sql`
       INSERT INTO names (name, email)
@@ -108,7 +92,24 @@ export const actions = {
       ON CONFLICT (email) DO NOTHING;
     `
     return { success: true };
-	}
+	},
+
+  update: async ({ request }) => {
+    const data = await request.formData();
+    const db = createPool({ connectionString: POSTGRES_URL })
+    const client = await db.connect();
+
+    const email = data.get('email') as null;
+	  //const id = data.get('id');
+    const name = data.get('name') as null;
+
+     const updateUser = await client.sql`
+     UPDATE names
+     SET email = ${email}
+     WHERE name = ${name} ;`
+	
+	 	return { success: true };
+	 }
 };
 
 
